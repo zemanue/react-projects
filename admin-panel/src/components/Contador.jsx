@@ -1,17 +1,11 @@
 import { useState } from "react";
 
-function Contador() {
+export default function Contador() {
     const [contador, setContador] = useState(0);
 
     return (
-        <>
-            <p>Contador de clics: {contador}</p>
-            <button onClick={() => setContador(contador + 1)}>
-                + 1
-            </button>
-            <p>Contador de clics: {contador}</p>
-        </>
+        <button onClick={() => setContador(contador + 1)}>
+            {contador}
+        </button>
     );
 }
-
-export default Contador;
