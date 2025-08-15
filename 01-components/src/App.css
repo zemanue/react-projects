@@ -7,8 +7,100 @@
   flex-direction: column;
 }
 
+.x-followCard-avatar,
+.x-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #222;
+}
+
+.x-post {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 16px 16px 16px;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #000;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #555;
+  border-radius: 16px;
+}
+
+.x-post:hover {
+  background: #111;
+  transition: all 0.2s ease;
+}
+
+.x-post-body {
+  flex: 1;
+}
+
+.x-post-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+.x-post-name {
+  font-weight: bold;
+}
+
+.x-post-username {
+  color: #aaa;
+}
+
+.x-post-dot {
+  color: #aaa;
+}
+
+.x-post-date {
+  color: #aaa;
+  font-size: 0.95em;
+}
+
+.x-post-content {
+  text-align: left;
+  margin: 8px 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.x-post-image {
+  margin: 8px 0;
+}
+
+.x-post-image img {
+  width: 100%;
+  border-radius: 16px;
+  max-height: 400px;
+  object-fit: cover;
+  background: #222;
+}
+
+.x-post-footer {
+  display: flex;
+  gap: 24px;
+  color: #aaa;
+  font-size: 0.98rem;
+  margin-top: 8px;
+}
+
+.x-post-footer span {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.x-post-footer span:hover {
+  color: #1da1f2;
+}
+
+
 .x-whoToFollow {
-  width: 75%;
+  width: 70%;
   padding: 16px;
   align-self: center;
   display: flex;
@@ -16,6 +108,12 @@
   gap: 10px;
   border: 1px solid #555;
   border-radius: 16px;
+  background-color: #000;
+}
+
+.x-followCard:hover {
+  background-color: #111;
+  transition: all 0.2s ease;
 }
 
 .x-card-title {
@@ -32,14 +130,6 @@
   justify-content: space-between;
 }
 
-.x-followCard-avatar, .x-post-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: #222;
-}
-
 .x-followCard-header {
   display: flex;
   align-items: center;
@@ -49,6 +139,7 @@
 .x-followCard-info {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .x-followCard-infoUserName {
@@ -58,11 +149,12 @@
 .x-followCard-button {
   cursor: pointer;
   margin-left: 16px;
-  border: 0;
+  border: 1px solid #555;
   border-radius: 999px;
   padding: 6px 16px;
   font-weight: bold;
-  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
   transition: .3s ease background-color;
 }
 
@@ -70,112 +162,12 @@
   opacity: .8;
 }
 
-.x-followCard-text {
-  display: block;
-}
-
 .x-followCard-button.is-following {
   border: 1px solid #bbb;
   background: transparent;
   color: #fff;
-  width: 140px;
 }
 
-.x-followCard-button.is-following:hover {
-  background-color: rgba(255, 0, 0, 0.178);
-  color: red;
-  border: 1px solid red;
-  transition: .3s ease all;
-  opacity: 1;
-}
-
-.x-followCard-button.is-following:hover .x-followCard-text {
-  display: none;
-}
-
-.x-followCard-button.is-following:hover .x-followCard-stopFollow {
+.x-followCard-text {
   display: block;
 }
-
-.x-followCard-stopFollow {
-  display: none;
-}
-
-
-.x-post {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 20px 16px 16px 16px;
-    border-bottom: 1px solid #222;
-    background: #171b1f;
-    color: #fff;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #555;
-    border-radius: 16px;
-}
-
-.x-post-body {
-    flex: 1;
-}
-
-.x-post-header {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 1rem;
-}
-
-.x-post-name {
-    font-weight: bold;
-}
-
-.x-post-username {
-    color: #aaa;
-}
-
-.x-post-dot {
-    color: #aaa;
-}
-
-.x-post-date {
-    color: #aaa;
-    font-size: 0.95em;
-}
-
-.x-post-content {
-    text-align: left;
-    margin: 8px 0 8px 0;
-    font-size: 1.1rem;
-}
-
-.x-post-image {
-    margin: 8px 0;
-}
-
-.x-post-image img {
-    width: 100%;
-    border-radius: 16px;
-    max-height: 400px;
-    object-fit: cover;
-    background: #222;
-}
-
-.x-post-footer {
-    display: flex;
-    gap: 24px;
-    color: #aaa;
-    font-size: 0.98rem;
-    margin-top: 8px;
-}
-
-.x-post-footer span {
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.x-post-footer span:hover {
-    color: #1da1f2;
-} 

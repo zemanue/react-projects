@@ -1,5 +1,6 @@
 export default function XFollowCard({ username, initialIsFollowing, name}) {
     const followingText = initialIsFollowing ? 'Siguiendo' : 'Seguir';
+    const buttonClass = initialIsFollowing ? 'x-followCard-button is-following' : 'x-followCard-button';
 
     return (
         <article className='x-followCard'>
@@ -16,7 +17,7 @@ export default function XFollowCard({ username, initialIsFollowing, name}) {
             </header>
 
             <aside>
-                <button className='x-followCard-button'>{followingText}</button>
+                <button className={buttonClass}>{followingText}</button>
             </aside>
         </article>
     );
