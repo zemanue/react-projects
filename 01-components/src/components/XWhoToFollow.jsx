@@ -2,8 +2,8 @@ import XFollowCard from "./XFollowCard";
 
 export default function WhoToFollow() {
     return (
-        <aside>
-            <h2>A quién seguir</h2>
+        <aside className="x-whoToFollow">
+            <h2 className="x-card-title">A quién seguir</h2>
             <XFollowCard
                 username="midudev"
                 initialIsFollowing={true}
