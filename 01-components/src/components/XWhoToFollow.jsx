@@ -1,24 +1,17 @@
 import XFollowCard from "./XFollowCard";
 
-export default function WhoToFollow() {
+export default function WhoToFollow({ users }) {
     return (
         <aside className="x-whoToFollow">
             <h2 className="x-card-title">A quién seguir</h2>
-            <XFollowCard
-                username="midudev"
-                initialIsFollowing={true}
-                name="Miguel Angel"
-            />
-            <XFollowCard
-                username="mouredev"
-                initialIsFollowing={false}
-                name="Brais Moure"
-            />
-            <XFollowCard
-                username="todo_code"
-                initialIsFollowing={false}
-                name="Todo Code"
-            />
+            {users.map(user => (
+                <XFollowCard
+                    key={user.username}
+                    username={user.username}
+                    initialIsFollowing={user.initialIsFollowing}
+                    name={user.name}
+                />
+            ))}
         </aside>
     );
 }
