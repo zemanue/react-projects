@@ -28,10 +28,10 @@ export default function XPost({
                     </div>
                 )}
                 <footer className="x-post-footer">
-                    <span>💬 {replies}</span>
-                    <span>🔁 {reposts}</span>
-                    <span>❤️ {likes}</span>
-                    <span>👁️ {views}</span>
+                    <span className="x-post-replies">💬 {replies}</span>
+                    <span className="x-post-reposts">🔁 {reposts}</span>
+                    <span className="x-post-likes">❤️ {likes}</span>
+                    <span className="x-post-views">👁️ {views}</span>
                 </footer>
             </div>
         </article>

@@ -86,6 +86,18 @@
     transition: color 0.2s;
 }
 
-.x-post-footer span:hover {
-    color: #1da1f2;
+.x-post-replies:hover {
+    color: var(--color-blue-components-x);
+}
+
+.x-post-reposts:hover {
+    color: var(--color-green-repost-x);
+}
+
+.x-post-likes:hover {
+    color: var(--color-pink-like-x);
+}
+
+.x-post-views:hover {
+    color: var(--color-blue-components-x);
 }
