@@ -3,8 +3,7 @@ import styles from './XFollowButton.module.css';
 
 export default function XFollowButton({ initialFollowingState }) {
     const [isFollowing, setIsFollowing] = useState(initialFollowingState);
-    const followingText = (isFollowing) ? "Siguiendo" : "Seguir";
-    const [buttonText, setButtonText] = useState(followingText);
+    const [buttonText, setButtonText] = useState(isFollowing ? "Siguiendo" : "Seguir");
     const buttonClass = (isFollowing) ? `${styles.button} ${styles.isFollowing}` : styles.button;
 
     const handleClick = () => {

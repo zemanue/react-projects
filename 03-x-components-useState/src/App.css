@@ -146,35 +146,6 @@
   opacity: .6;
 }
 
-.x-followCard-button {
-  cursor: pointer;
-  margin-left: 16px;
-  border: 1px solid #555;
-  border-radius: 999px;
-  padding: 6px 16px;
-  font-weight: bold;
-  background-color: #fff;
-  color: #000;
-  transition: .3s ease background-color;
-}
-
-.x-followCard-button:hover {
-  opacity: .8;
-}
-
-.x-followCard-button.is-following {
-  border: 1px solid #bbb;
-  background: transparent;
-  color: #fff;
-}
-
-.x-followCard-button.is-following:hover {
-  background-color: rgba(191, 0, 0, 0.123);
-  color: red;
-  border: 1px solid red;
-  transition: .1s ease all;
-}
-
 .x-followCard-text {
   display: block;
 }
