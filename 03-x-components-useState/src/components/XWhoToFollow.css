@@ -1,0 +1,19 @@
+.x-whoToFollow {
+  width: 70%;
+  padding: 16px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid #555;
+  border-radius: 16px;
+  background-color: #000;
+}
+
+.x-card-title {
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}

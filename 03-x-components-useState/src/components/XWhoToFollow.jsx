@@ -1,4 +1,5 @@
 import XFollowCard from "./XFollowCard";
+import "./XWhoToFollow.css";
 
 export default function WhoToFollow({ users }) {
     return (

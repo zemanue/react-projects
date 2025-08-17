@@ -1,0 +1,36 @@
+.x-followCard {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: .8rem;
+    justify-content: space-between;
+    font-family: 'Chirp', 'Segoe UI', Arial, sans-serif;
+}
+
+.x-followCard:hover {
+    background: #111;
+    transition: all 0.2s ease;
+}
+
+.x-followCard-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.x-followCard-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 1000px;
+    object-fit: cover;
+    background: #222;
+}
+
+.x-followCard-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.x-followCard-infoUserName {
+    opacity: .6;
+}

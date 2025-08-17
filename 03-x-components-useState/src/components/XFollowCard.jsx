@@ -1,3 +1,5 @@
+
+import './XFollowCard.css';
 import XFollowButton from './XFollowButton'; 
 
 export default function XFollowCard({ username, initialIsFollowing, name}) {

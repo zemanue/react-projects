@@ -1,3 +1,5 @@
+import "./XPost.css";
+
 export default function XPost({
     name,
     username,
