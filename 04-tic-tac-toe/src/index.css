@@ -30,6 +30,9 @@ body {
 }
 
 .board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
   width: fit-content;
   margin: 40px auto;
   text-align: center;
