@@ -1,9 +1,6 @@
-import { useState } from "react";
+import XFollowButton from './XFollowButton'; 
 
 export default function XFollowCard({ username, initialIsFollowing, name}) {
-    const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
-    const followingText = isFollowing ? 'Siguiendo' : 'Seguir';
-    const buttonClass = isFollowing ? 'x-followCard-button is-following' : 'x-followCard-button';
 
     return (
         <article className='x-followCard'>
@@ -20,7 +17,7 @@ export default function XFollowCard({ username, initialIsFollowing, name}) {
             </header>
 
             <aside>
-                <button className={buttonClass} onClick={() => setIsFollowing(!isFollowing)}>{followingText}</button>
+                <XFollowButton initialFollowingState={initialIsFollowing} />
             </aside>
         </article>
     );

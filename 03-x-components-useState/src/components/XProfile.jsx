@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './XProfile.css';
+import XFollowButton from './XFollowButton'; 
 
 export default function XProfile({
     name,
@@ -31,7 +32,7 @@ export default function XProfile({
                 <div className="x-profile-header-actions">
                     <button className="x-profile-action-btn">•••</button>
                     <button className="x-profile-action-btn">✉️</button>
-                    <button className={buttonClass} onClick={() => setIsFollowing(!isFollowing)}>{followingText}</button>
+                    <XFollowButton initialFollowingState={initialIsFollowing} />
                 </div>
             </div>
             <div className="x-profile-info">
