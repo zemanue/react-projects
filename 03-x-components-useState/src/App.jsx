@@ -1,4 +1,5 @@
 
+import { useState } from 'react'
 import './App.css'
 import XWhoToFollow from './components/XWhoToFollow'
 import XPost from './components/XPost'
@@ -6,7 +7,7 @@ import XProfile from './components/XProfile'
 
 function App() {
 
-  const users = [
+  const [users, setUsers] = useState([
     {
       username: "midudev",
       name: "Miguel Angel",
@@ -22,7 +23,7 @@ function App() {
       name: "Otro Desarrollador",
       initialIsFollowing: false
     }
-  ]
+  ]);
 
   return (
     <>
