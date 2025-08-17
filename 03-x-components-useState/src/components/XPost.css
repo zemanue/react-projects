@@ -1,19 +1,21 @@
+@import '../styles/_variables.css';
+
 .x-post {
     display: flex;
     align-items: flex-start;
     gap: 16px;
     padding: 20px 16px 16px 16px;
-    color: #fff;
+    color: var(--color-white-text-x);
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #000;
+    background-color: var(--color-dark-x);
     max-width: 600px;
     margin: 0 auto;
-    border: 1px solid #555;
+    border: 1px solid var(--color-gray-border-x);
     border-radius: 16px;
 }
 
 .x-post:hover {
-    background: #111;
+    background: var(--color-dark-hover-x);
     transition: all 0.2s ease;
 }
 
@@ -22,7 +24,7 @@
     height: 48px;
     border-radius: 1000px;
     object-fit: cover;
-    background: #222;
+    background: var(--color-dark-x);
 }
 
 .x-post-body {
@@ -41,15 +43,15 @@
 }
 
 .x-post-username {
-    color: #aaa;
+    color: var(--color-gray-border-x);
 }
 
 .x-post-dot {
-    color: #aaa;
+    color: var(--color-gray-border-x);
 }
 
 .x-post-date {
-    color: #aaa;
+    color: var(--color-gray-border-x);
     font-size: 0.95em;
 }
 
@@ -68,13 +70,13 @@
     border-radius: 16px;
     max-height: 400px;
     object-fit: cover;
-    background: #222;
+    background: var(--color-dark-x);
 }
 
 .x-post-footer {
     display: flex;
     gap: 24px;
-    color: #aaa;
+    color: var(--color-gray-text-x);
     font-size: 0.98rem;
     margin-top: 8px;
 }

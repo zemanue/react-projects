@@ -1,11 +1,13 @@
+@import '../styles/_variables.css';
+
 .x-profile-page {
-  background: #000;
-  color: #fff;
+  background: var(--color-dark-x);
+  color: var(--color-white-text-x);
   border-radius: 16px;
   width: 600px;
   margin: 0 auto;
   font-family: 'Segoe UI', Arial, sans-serif;
-  box-shadow: 0 2px 8px #0006;
+  box-shadow: 0 2px 8px var(--color-black-button-hover-x);
   position: relative;
   overflow: hidden;
   text-align: left;
@@ -16,7 +18,7 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
-  background: #222;
+  background: var(--color-dark-x);
   display: block;
 }
 
@@ -39,9 +41,9 @@
   width: 132px;
   height: 132px;
   border-radius: 50%;
-  border: 1px solid #000;
-  background: #222;
-  box-shadow: 0 0 0 4px #000;
+  border: 1px solid var(--color-dark-x);
+  background: var(--color-dark-x);
+  box-shadow: 0 0 0 4px var(--color-dark-hover-x);
 }
 
 .x-profile-header-actions {
@@ -53,8 +55,8 @@
 
 .x-profile-action-btn {
   background: transparent;
-  color: #fff;
-  border: 1px solid #555;
+  color: var(--color-white-text-x);
+  border: 1px solid var(--color-gray-border-x);
   border-radius: 50%;
   width: 45px;
   height: 45px;
@@ -67,7 +69,7 @@
 }
 
 .x-profile-action-btn:hover {
-  background: #333;
+  background: var(--color-dark-hover-x);
   opacity: .8;
 }
 
@@ -86,12 +88,12 @@
 }
 
 .x-profile-verified {
-  color: #1da1f2;
+  color: var(--color-blue-text-x);
   font-size: 1.3rem;
 }
 
 .x-profile-username {
-  color: #aaa;
+  color: var(--color-gray-text-x);
   margin-bottom: 8px;
   font-size: 1rem;
 }
@@ -103,39 +105,38 @@
 }
 
 .x-profile-bio a {
-  color: #1da1f2;
+  color: var(--color-blue-text-x);
   text-decoration: none;
 }
 
 .x-profile-bio-more {
-  color: #1da1f2;
+  color: var(--color-blue-text-x);
   font-size: 0.95rem;
   display: inline-block;
   margin-top: 4px;
 }
 
 .x-profile-extra {
-  color: #aaa;
+  color: var(--color-gray-text-x);
   font-size: 1rem;
   margin-bottom: 8px;
   line-height: 1.5;
 }
 
 .x-profile-extra a {
-  color: #1da1f2;
+  color: var(--color-blue-text-x);
   text-decoration: none;
 }
 
 .x-profile-stats {
-  color: #fff;
   opacity: 0.8;
   font-size: 1rem;
-  color: #aaa;
+  color: var(--color-gray-text-x);
   display: flex;
   gap: 24px;
   margin-top: 8px;
 }
 
 .x-profile-stats b {
-  color: #fff;
+  color: var(--color-white-text-x);
 }

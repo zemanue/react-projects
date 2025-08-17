@@ -1,0 +1,19 @@
+:root {
+    --color-dark-x: #000;
+    --color-dark-hover-x: #080808;
+    --color-white-text-x: #e7e9ea;
+    --color-black-text-x: #080808;
+    --color-gray-text-x: #71767b;
+    --color-blue-text-x: #1d9bf0;
+    --color-red-text-x: #f4212e;
+    --color-gray-border-x: #536471;
+    --color-white-button-x: #eff3f4;
+    --color-white-button-hover-x: #d7dbdc;
+    --color-black-button-x: #000;
+    --color-black-button-hover-x: #1c1c1c;
+    --color-blue-components-x: #1d9bf0;
+    --color-red-button-border-x: #67070f;
+    --color-red-button-hover-x: #bf00001f;
+    --color-green-repost-x: #00ba7c;
+    --color-pink-like-x: #f91880;
+}

@@ -1,12 +1,14 @@
+@import '../styles/_variables.css';
+
 .button {
     cursor: pointer;
     margin-left: 16px;
-    border: 1px solid #555;
+    border: 1px solid var(--color-gray-border-x);
     border-radius: 999px;
     padding: 6px 16px;
     font-weight: bold;
-    background-color: #fff;
-    color: #000;
+    background-color: var(--color-white-button-x);
+    color: var(--color-black-text-x);
     transition: .3s ease background-color;
 }
 
@@ -15,14 +17,13 @@
 }
 
 .isFollowing {
-    border: 1px solid #bbb;
     background: transparent;
-    color: #fff;
+    color: var(--color-white-text-x);
 }
 
 .isFollowing:hover {
-    background-color: rgba(191, 0, 0, 0.123);
-    color: red;
-    border: 1px solid red;
+    background-color: var(--color-red-button-hover-x);
+    color: var(--color-red-text-x);
+    border: 1px solid var(--color-red-button-border-x);
     transition: .1s ease all;
 }

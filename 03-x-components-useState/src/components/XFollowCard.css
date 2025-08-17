@@ -1,14 +1,16 @@
+@import '../styles/_variables.css';
+
 .x-followCard {
     display: flex;
     align-items: center;
-    color: #fff;
+    color: var(--color-white-text-x);
     font-size: .8rem;
     justify-content: space-between;
     font-family: 'Chirp', 'Segoe UI', Arial, sans-serif;
 }
 
 .x-followCard:hover {
-    background: #111;
+    background: var(--color-dark-hover-x);
     transition: all 0.2s ease;
 }
 
@@ -23,7 +25,7 @@
     height: 48px;
     border-radius: 1000px;
     object-fit: cover;
-    background: #222;
+    background: var(--color-dark-x);
 }
 
 .x-followCard-info {
