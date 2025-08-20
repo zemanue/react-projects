@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import confetti from 'canvas-confetti'
+import Board from './components/Board'
 import Square from './components/Square'
 import WinnerModal from './components/WinnerModal'
 import ResetButton from './components/ResetButton'
@@ -50,19 +51,7 @@ function App() {
   return (
     <>
       <h1>Tic Tac Toe</h1>
-      <section className='board'>
-        {board.map((_, index) => {
-          return (
-            <Square
-              key={index}
-              index={index}
-              updateBoard={updateBoard}
-            >
-              {board[index]}
-            </Square>
-          )
-        })}
-      </section>
+      <Board board={board} updateBoard={updateBoard} />
       <ResetButton buttonText="Reiniciar" resetGame={resetGame} />
 
       <section className='turn'>
