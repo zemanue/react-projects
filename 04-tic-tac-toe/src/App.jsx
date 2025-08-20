@@ -6,7 +6,7 @@ import Square from './components/Square'
 import WinnerModal from './components/WinnerModal'
 import ResetButton from './components/ResetButton'
 import { TURNS } from './constants'
-import { checkWinnerFrom } from './logic/board'
+import { checkWinnerFrom, checkEndGame, getNextTurn } from './logic/board'
 
 
 function App() {
@@ -32,8 +32,7 @@ function App() {
         setWinner(false)
         return
       }
-      const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
-      setTurn(newTurn)
+      setTurn(getNextTurn(turn))
     }
   }
 
@@ -41,11 +40,6 @@ function App() {
     setBoard(Array(9).fill(null))
     setWinner(null)
     setTurn(TURNS.X)
-  }
-
-  const checkEndGame = (boardToCheck) => {
-    // Si cada casilla está ocupada (!= null), es un empate
-    return boardToCheck.every(square => square !== null)
   }
 
   return (

@@ -1,4 +1,4 @@
-import { WINNING_COMBINATIONS } from '../constants'
+import { TURNS, WINNING_COMBINATIONS } from '../constants'
 
 export const checkWinnerFrom = (boardToCheck) => {
     // Se hace una comprobación de cada combinación ganadora
@@ -13,6 +13,14 @@ export const checkWinnerFrom = (boardToCheck) => {
             return boardToCheck[a]
         }
     }
-    // Si no hay ganador, se retorna null
     return null
+}
+
+export const checkEndGame = (boardToCheck) => {
+    // Si cada casilla está ocupada (!= null), es un empate
+    return boardToCheck.every(square => square !== null)
+}
+
+export const getNextTurn = (turn) => {
+    return turn === TURNS.X ? TURNS.O : TURNS.X
 }
