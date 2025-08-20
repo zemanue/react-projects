@@ -68,6 +68,9 @@ function App() {
         confetti() // Efecto de confeti al ganar
         setWinner(winner)
         return
+      } else if (checkEndGame(newBoard)) {
+        setWinner(false)
+        return
       }
       const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
       setTurn(newTurn)
@@ -78,6 +81,11 @@ function App() {
     setBoard(Array(9).fill(null))
     setWinner(null)
     setTurn(TURNS.X)
+  }
+
+  const checkEndGame = (boardToCheck) => {
+    // Si cada casilla está ocupada (!= null), es un empate
+    return boardToCheck.every(square => square !== null)
   }
 
   return (
