@@ -2,22 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import confetti from 'canvas-confetti'
 import Square from './components/Square'
+import { TURNS } from './constants'
+import { checkWinnerFrom } from './logic/board'
 
-const TURNS = {
-  X: 'X',
-  O: 'O',
-}
-
-const WINNING_COMBINATIONS = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-]
 
 function App() {
   const [board, setBoard] = useState(Array(9).fill(null))
@@ -26,23 +13,6 @@ function App() {
 
   const [winner, setWinner] = useState(null)
 
-  const checkWinner = (boardToCheck) => {
-    // Se hace una comprobación de cada combinación ganadora
-    for (const combination of WINNING_COMBINATIONS) {
-      const [a, b, c] = combination
-      // Si los valores de la combinación son iguales y no son null, se retorna el ganador
-      if (
-        boardToCheck[a] &&
-        boardToCheck[a] === boardToCheck[b] &&
-        boardToCheck[a] === boardToCheck[c]
-      ) {
-        return boardToCheck[a]
-      }
-    }
-    // Si no hay ganador, se retorna null
-    return null
-  }
-
   const updateBoard = (index) => {
     // Se hace una copia del tablero porque nunca se debe modificar el estado
     const newBoard = [...board]
@@ -50,7 +20,7 @@ function App() {
       newBoard[index] = turn // Se añade X / O dependiendo del turno
       setBoard(newBoard)
 
-      const winner = checkWinner(newBoard)
+      const winner = checkWinnerFrom(newBoard)
       if (winner) {
         confetti() // Efecto de confeti al ganar
         setWinner(winner)
