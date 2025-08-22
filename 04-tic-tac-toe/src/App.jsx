@@ -2,9 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import confetti from 'canvas-confetti'
 import Board from './components/Board'
-import Square from './components/Square'
 import WinnerModal from './components/WinnerModal'
 import ResetButton from './components/ResetButton'
+import TurnSection from './components/TurnSection'
 import { TURNS } from './constants'
 import { checkWinnerFrom, checkEndGame, getNextTurn } from './logic/board'
 
@@ -48,14 +48,7 @@ function App() {
       <Board board={board} updateBoard={updateBoard} />
       <ResetButton buttonText="Reiniciar" resetGame={resetGame} />
 
-      <section className='turn'>
-        <Square isSelected={turn === TURNS.X}>
-          {TURNS.X}
-        </Square>
-        <Square isSelected={turn === TURNS.O}>
-          {TURNS.O}
-        </Square>
-      </section>
+      <TurnSection turn={turn} />
       <WinnerModal winner={winner} resetGame={resetGame} />
     </>
   )
