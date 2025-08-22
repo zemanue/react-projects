@@ -1,7 +1,7 @@
 import Square from "./Square"
 import ResetButton from "./ResetButton"
 
-export default function WinnerModal({ winner, resetGame }) {
+export default function WinnerModal({ winner, resetFunction }) {
 
     if (winner === null) return null
 
@@ -17,7 +17,7 @@ export default function WinnerModal({ winner, resetGame }) {
                     {winner && <Square>{winner}</Square>}
                 </header>
 
-                <ResetButton buttonText="Volver a jugar" resetGame={resetGame} />
+                <ResetButton buttonText="Volver a jugar" resetFunction={resetFunction} />
             </div>
         </section>
     )

@@ -9,6 +9,7 @@ import { TURNS } from './constants'
 
 import { checkWinnerFrom, checkEndGame, getNextTurn } from './logic/board'
 import { saveGameToLocalStorage, resetGameStorage } from './logic/save'
+import { saveStatsToLocalStorage, resetStatsStorage } from './logic/stats'
 
 
 function App() {
@@ -24,6 +25,11 @@ function App() {
   console.log('turn', turn)
 
   const [winner, setWinner] = useState(null)
+
+  const [stats, setStats] = useState(() => {
+    const storedStats = window.localStorage.getItem('stats')
+    return storedStats ? JSON.parse(storedStats) : { gamesPlayed: 0, xWins: 0, oWins: 0, draws: 0 }
+  })
 
   const updateBoard = (index) => {
     // Se hace una copia del tablero porque nunca se debe modificar el estado
@@ -44,9 +50,20 @@ function App() {
       if (winner) {
         confetti() // Efecto de confeti al ganar
         setWinner(winner)
+        const newStats = { ...stats, gamesPlayed: stats.gamesPlayed + 1 }
+        if (winner === TURNS.X) {
+          newStats.xWins += 1
+        } else {
+          newStats.oWins += 1
+        }
+        setStats(newStats)
+        saveStatsToLocalStorage(newStats)
         return
       } else if (checkEndGame(newBoard)) {
         setWinner(false)
+        const newStats = { ...stats, gamesPlayed: stats.gamesPlayed + 1, draws: stats.draws + 1 }
+        setStats(newStats)
+        saveStatsToLocalStorage(newStats)
         return
       }
     }
@@ -59,22 +76,27 @@ function App() {
     resetGameStorage()
   }
 
+  const resetStats = () => {
+    setStats({ gamesPlayed: 0, xWins: 0, oWins: 0, draws: 0 })
+    resetStatsStorage()
+  }
+
   return (
     <>
-      <h1>Tic Tac Toe</h1>
       <div className="main-container">
         <div className='game'>
+          <h1>Tic Tac Toe</h1>
           <Board board={board} updateBoard={updateBoard} />
           <ResetButton buttonText="Reiniciar" resetFunction={resetGame} />
           <TurnSection turn={turn} />
         </div>
         <div className='stats'>
           <h2>Estadísticas</h2>
-          <p>Partidas jugadas: </p>
-          <p>Victorias ✖️: </p>
-          <p>Victorias ⭕: </p>
-          <p>Empates: </p>
-          <ResetButton buttonText="Reiniciar estadísticas" resetFunction={resetGameStats} />
+          <p>Partidas jugadas: {stats.gamesPlayed}</p>
+          <p>Victorias ✖️: {stats.xWins}</p>
+          <p>Victorias ⭕: {stats.oWins}</p>
+          <p>Empates: {stats.draws}</p>
+          <ResetButton buttonText="Reiniciar estadísticas" resetFunction={resetStats} />
         </div>
       </div>
       <WinnerModal winner={winner} resetFunction={resetGame} />
