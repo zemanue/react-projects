@@ -8,8 +8,7 @@ import TurnSection from './components/TurnSection'
 import { TURNS } from './constants'
 
 import { checkWinnerFrom, checkEndGame, getNextTurn } from './logic/board'
-import { saveGameToLocalStorage, resetGameStorage } from './logic/save'
-import { saveStatsToLocalStorage, resetStatsStorage } from './logic/stats'
+import { saveGameToLocalStorage, resetGameStorage, saveStatsToLocalStorage, resetStatsStorage } from './logic/localStorage'
 
 
 function App() {
