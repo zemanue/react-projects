@@ -30,7 +30,7 @@ body {
 }
 
 .main-container {
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -39,7 +39,7 @@ body {
 
 .game {
   width: 500px;
-  height: 500px;
+  height: auto;
 }
 
 .stats {
@@ -154,4 +154,24 @@ body {
   place-items: center;
   cursor: pointer;
   font-size: 48px;
+}
+
+/* Responsive para móvil */
+@media (max-width: 600px) {
+  .main-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .game,
+  .stats {
+    width: 100%;
+    margin: 0;
+  }
+
+  .stats {
+    margin-top: 24px;
+    margin-left: 0;
+    box-sizing: border-box;
+  }
 }
