@@ -35,9 +35,9 @@ function App() {
       const newTurn = getNextTurn(turn)
       setTurn(newTurn)
 
-      saveGameToLocalStorage({ 
-        board: newBoard, 
-        turn: newTurn 
+      saveGameToLocalStorage({
+        board: newBoard,
+        turn: newTurn
       })
 
       const winner = checkWinnerFrom(newBoard)
