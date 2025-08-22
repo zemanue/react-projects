@@ -1,7 +1,7 @@
-export default function ResetButton({ buttonText, resetGame }) {
+export default function ResetButton({ buttonText, resetFunction }) {
     return (
         <footer>
-            <button onClick={resetGame} className='reset-btn'>{buttonText}</button>
+            <button onClick={resetFunction} className='reset-btn'>{buttonText}</button>
         </footer>
     )
 }

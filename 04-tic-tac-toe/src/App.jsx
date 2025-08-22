@@ -62,11 +62,22 @@ function App() {
   return (
     <>
       <h1>Tic Tac Toe</h1>
-      <Board board={board} updateBoard={updateBoard} />
-      <ResetButton buttonText="Reiniciar" resetGame={resetGame} />
-
-      <TurnSection turn={turn} />
-      <WinnerModal winner={winner} resetGame={resetGame} />
+      <div className="main-container">
+        <div className='game'>
+          <Board board={board} updateBoard={updateBoard} />
+          <ResetButton buttonText="Reiniciar" resetFunction={resetGame} />
+          <TurnSection turn={turn} />
+        </div>
+        <div className='stats'>
+          <h2>Estadísticas</h2>
+          <p>Partidas jugadas: </p>
+          <p>Victorias ✖️: </p>
+          <p>Victorias ⭕: </p>
+          <p>Empates: </p>
+          <ResetButton buttonText="Reiniciar estadísticas" resetFunction={resetGameStats} />
+        </div>
+      </div>
+      <WinnerModal winner={winner} resetFunction={resetGame} />
     </>
   )
 }
