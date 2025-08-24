@@ -5,6 +5,7 @@ import Board from './components/Board'
 import WinnerModal from './components/WinnerModal'
 import ResetButton from './components/ResetButton'
 import TurnSection from './components/TurnSection'
+import Stats from './components/Stats'
 import { TURNS } from './constants'
 
 import { checkWinnerFrom, checkEndGame, getNextTurn } from './logic/board'
@@ -89,14 +90,7 @@ function App() {
           <ResetButton buttonText="Reiniciar" resetFunction={resetGame} />
           <TurnSection turn={turn} />
         </div>
-        <div className='stats'>
-          <h2>Estadísticas</h2>
-          <p>Partidas jugadas: {stats.gamesPlayed}</p>
-          <p>Victorias ✖️: {stats.xWins}</p>
-          <p>Victorias ⭕: {stats.oWins}</p>
-          <p>Empates: {stats.draws}</p>
-          <ResetButton buttonText="Reiniciar estadísticas" resetFunction={resetStats} />
-        </div>
+        <Stats stats={stats} resetStats={resetStats} />
       </div>
       <WinnerModal winner={winner} resetFunction={resetGame} />
     </>
