@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
 
 export default function App() {
+  const [fact, setFact] = useState('')
+
+  useEffect(() => {
+    fetch(CAT_ENDPOINT_RANDOM_FACT)
+      .then((res ) => res.json())
+      .then((data) => setFact(data.fact))
+      .catch((err) => console.log(err))
+  }, [])
 
   return (
     <main>
@@ -15,6 +25,10 @@ export default function App() {
         <li>Facts Random: https://catfact.ninja/fact</li>
         <li>Cat Images: https://cataas.com/cat/says/hello</li>
       </ul>
+      <br />
+      <ol>
+        <li>Random Fact: {fact}</li>
+      </ol>
     </main>
   )
 }
