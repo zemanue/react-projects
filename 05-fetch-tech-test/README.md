@@ -3,7 +3,7 @@
 ## Explicación
 
 1. Recupera un hecho aleatorio de gatos.
-2. Muestra una imagen de un gato con la primera palabra del hecho.
+2. Muestra una imagen de un gato con las tres primeras palabras del hecho.
 
 ## APIS
 
