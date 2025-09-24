@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './App.css'
 
 const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
@@ -48,8 +49,10 @@ export default function App() {
         <li>Cat Images: https://cataas.com/cat/says/hello</li>
       </ul>
       <br />
-      {fact && <p>Random Fact: {fact}</p>}
-      {imageUrl && <img src={imageUrl} alt={`Imagen de un gato con las tres primeras palabras del hecho ${fact}`} />}
+      <section>
+        {fact && <p>Random Fact: {fact}</p>}
+        {imageUrl && <img src={imageUrl} alt={`Imagen de un gato con las tres primeras palabras del hecho ${fact}`} />}
+      </section>
     </main>
   )
 }
