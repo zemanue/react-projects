@@ -50,8 +50,8 @@ export default function App() {
       </ul>
       <br />
       <section>
-        {fact && <p>Random Fact: {fact}</p>}
         {imageUrl && <img src={imageUrl} alt={`Imagen de un gato con las tres primeras palabras del hecho ${fact}`} />}
+        {fact && <p>Random Fact: {fact}</p>}
       </section>
     </main>
   )
