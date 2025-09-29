@@ -9,31 +9,35 @@ export default function App() {
   const [fact, setFact] = useState('')
   const [imageUrl, setImageUrl] = useState()
 
-  // Efecto para obtener el hecho y la imagen al montar el componente (solo una vez "[]")
+  // Efecto para obtener el hecho al montar el componente (solo una vez "[]")
   useEffect(() => {
-    // Primer fetch: Obtener un hecho aleatorio de gatos
     fetch(CAT_ENDPOINT_RANDOM_FACT)
       .then(response => response.json())
       .then(responseJson => {
         // Extraemos "fact" de la respuesta JSON y actualizamos el estado
         const fact = responseJson.fact
         setFact(fact)
-
-        // Dividimos el hecho en un array de las tres primeras palabras y las unimos en un array con espacios de nuevo.
-        const firstThreeWords = fact.split(' ', 3).join(' ')
-
-        // Segundo fetch: Obtener la imagen del gato con las tres primeras palabras, en formato JSON
-        fetch(`${CAT_PREFIX_IMAGE_URL}/cat/says/${firstThreeWords}?json=true`)
-          .then(response => response.json())
-          .then(responseJson => {
-            // Extraemos "url" de la respuesta JSON y actualizamos el estado
-            const url = responseJson.url  
-            setImageUrl(url)
-          })
-          .catch((error) => console.log(error))
       })
       .catch((error) => console.log(error))
   }, [])
+
+  // Efecto para obtener la imagen cuando el hecho cambia
+  useEffect(() => {
+    if (!fact) return // Si no hay hecho, no hacemos nada
+
+    // Dividimos el hecho en un array de las tres primeras palabras y las unimos en un array con espacios de nuevo.
+    const firstThreeWords = fact.split(' ', 3).join(' ') + "..."
+
+    // Segundo fetch: Obtener la imagen del gato con las tres primeras palabras, en formato JSON
+    fetch(`${CAT_PREFIX_IMAGE_URL}/cat/says/${firstThreeWords}?json=true`)
+      .then(response => response.json())
+      .then(responseJson => {
+        // Extraemos "url" de la respuesta JSON y actualizamos el estado
+        const url = responseJson.url
+        setImageUrl(url)
+      })
+      .catch((error) => console.log(error))
+  }, [fact]) // Solo se vuelve a ejecutar si "fact" cambia
 
   return (
     <main>
