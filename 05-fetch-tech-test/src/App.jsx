@@ -9,10 +9,14 @@ export default function App() {
   const [imageUrl, setImageUrl] = useState()
 
   // Efecto para obtener el hecho al montar el componente (solo una vez "[]")
-  useEffect(() => getRandomFact().then(newFact => setFact(newFact)), [])
+  useEffect(() => {
+    getRandomFact().then(newFact => setFact(newFact))
+  }, [])
 
   // Efecto para obtener la imagen cuando el hecho cambia
-  useEffect(() => getCatImageUrl(fact).then(newImageUrl => setImageUrl(newImageUrl)), [fact]) // Solo se vuelve a ejecutar si "fact" cambia
+  useEffect(() => {
+    getCatImageUrl(fact).then(newImageUrl => setImageUrl(newImageUrl))
+  }, [fact]) // Solo se vuelve a ejecutar si "fact" cambia
 
   const handleClick = () => {
     getRandomFact().then(newFact => setFact(newFact))
