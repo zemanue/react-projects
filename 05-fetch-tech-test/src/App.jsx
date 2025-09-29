@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
+import { getRandomFact } from './services/facts'
 
-const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
 
 export default function App() {
@@ -11,14 +11,7 @@ export default function App() {
 
   // Efecto para obtener el hecho al montar el componente (solo una vez "[]")
   useEffect(() => {
-    fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then(response => response.json())
-      .then(responseJson => {
-        // Extraemos "fact" de la respuesta JSON y actualizamos el estado
-        const fact = responseJson.fact
-        setFact(fact)
-      })
-      .catch((error) => console.log(error))
+    getRandomFact().then(newFact => setFact(newFact))
   }, [])
 
   // Efecto para obtener la imagen cuando el hecho cambia
@@ -39,6 +32,10 @@ export default function App() {
       .catch((error) => console.log(error))
   }, [fact]) // Solo se vuelve a ejecutar si "fact" cambia
 
+  const handleClick = () => {
+    getRandomFact().then(newFact => setFact(newFact))
+  }
+
   return (
     <main>
       <h1>Fetch Technical Test</h1>
@@ -53,6 +50,7 @@ export default function App() {
         <li>Cat Images: https://cataas.com/cat/says/hello</li>
       </ul>
       <br />
+      <button onClick={handleClick}>🔄️ New Random Fact</button>
       <section>
         {imageUrl && <img src={imageUrl} alt={`Imagen de un gato con las tres primeras palabras del hecho ${fact}`} />}
         {fact && <p>Random Fact: {fact}</p>}
