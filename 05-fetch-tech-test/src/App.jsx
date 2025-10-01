@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import { getRandomFact } from './services/facts'
+import { useFacts } from './hooks/useFacts'
 import { getCatImageUrl } from './services/images'
 
 export default function App() {
-  // Estados para el hecho y la URL de la imagen
-  const [fact, setFact] = useState('')
-  const [imageUrl, setImageUrl] = useState()
+  // Con este custom hook useFacts(), obtenemos el hecho y la función para refrescarlo
+  const { fact, refreshFact } = useFacts()
 
-  // Efecto para obtener el hecho al montar el componente (solo una vez "[]")
-  useEffect(() => {
-    getRandomFact().then(newFact => setFact(newFact))
-  }, [])
+  // Estados para la URL de la imagen
+  const [imageUrl, setImageUrl] = useState()
 
   // Efecto para obtener la imagen cuando el hecho cambia
   useEffect(() => {
     getCatImageUrl(fact).then(newImageUrl => setImageUrl(newImageUrl))
   }, [fact]) // Solo se vuelve a ejecutar si "fact" cambia
 
-  const handleClick = () => {
-    getRandomFact().then(newFact => setFact(newFact))
+  const handleClick = async () => {
+    refreshFact()
   }
 
   return (
