@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './App.css'
 import { useFacts } from './hooks/useFacts'
-import { getCatImageUrl } from './services/images'
+import { useCatImage } from './hooks/useCatImage'
 
 export default function App() {
   // Con este custom hook useFacts(), obtenemos el hecho y la función para refrescarlo
   const { fact, refreshFact } = useFacts()
 
-  // Estados para la URL de la imagen
-  const [imageUrl, setImageUrl] = useState()
-
-  // Efecto para obtener la imagen cuando el hecho cambia
-  useEffect(() => {
-    getCatImageUrl(fact).then(newImageUrl => setImageUrl(newImageUrl))
-  }, [fact]) // Solo se vuelve a ejecutar si "fact" cambia
+  // Con este custom hook useCatImage(), obtenemos la URL de la imagen del gato basada en el hecho  
+  const { imageUrl } = useCatImage(fact)
 
   const handleClick = async () => {
     refreshFact()

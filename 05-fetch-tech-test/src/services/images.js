@@ -1,5 +1,6 @@
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
 
+// getCatImageUrl: devolverá una Promesa con la URL de la imagen del gato con las tres primeras palabras del hecho
 export const getCatImageUrl = (fact) => {
     if (!fact) return Promise.resolve(undefined) // Si no hay hecho, devolvemos una promesa resuelta
 
